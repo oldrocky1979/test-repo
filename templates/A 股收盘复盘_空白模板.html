@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票名称 (股票代码) 收盘复盘报告 - YYYY 年 MM 月 DD 日</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", "SimSun", "sans-serif";
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 30px;
+            color: #333;
+        }
+        h1 {
+            font-size: 22px;
+            color: #1a5276;
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #1a5276;
+            padding-bottom: 15px;
+        }
+        h2 {
+            font-size: 16px;
+            color: #2874a6;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            background-color: #ebf5fb;
+            padding: 8px 12px;
+            border-left: 4px solid #2874a6;
+        }
+        h3 {
+            font-size: 14px;
+            color: #1a5276;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        .success-box {
+            background-color: #d4edda;
+            border: 1px solid #28a745;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11px;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #1a5276;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .price-up {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .price-down {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            font-weight: bold;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        li {
+            margin: 6px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+            font-size: 10px;
+            color: #6c757d;
+        }
+        .strategy-box {
+            border: 2px solid #2874a6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f0f8ff;
+        }
+        .price-level {
+            display: inline-block;
+            padding: 4px 12px;
+            margin: 3px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .resistance {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        .support {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .current {
+            background-color: #1a5276;
+            color: white;
+        }
+        .timeline {
+            border-left: 3px solid #2874a6;
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        .timeline-item {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: "●";
+            color: #2874a6;
+            font-weight: bold;
+            position: absolute;
+            left: -26px;
+        }
+        .k-line {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📊 股票名称 (股票代码) 收盘复盘报告</h1>
+<div style="text-align: center; color: #6c757d; margin-bottom: 20px;">
+    日期：YYYY 年 MM 月 DD 日（周__） | 数据源：待接入
+</div>
+
+<div class="info-box">
+    <strong>📈 今日收盘数据</strong>
+    <table style="margin-top: 10px;">
+        <tr>
+            <th>指标</th>
+            <th>数值</th>
+            <th>说明</th>
+            <th>指标</th>
+            <th>数值</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>收盘价</td>
+            <td class="highlight">___</td>
+            <td>___</td>
+            <td>涨跌幅</td>
+            <td class="highlight">___</td>
+            <td>___</td>
+        </tr>
+        <tr>
+            <td>今开</td>
+            <td class="highlight">___</td>
+            <td>___</td>
+            <td>最高</td>
+            <td class="highlight">___</td>
+            <td>___</td>
+        </tr>
+        <tr>
+            <td>最低</td>
+            <td class="highlight">___</td>
+            <td>___</td>
+            <td>成交量</td>
+            <td class="highlight">___</td>
+            <td>手</td>
+        </tr>
+        <tr>
+            <td>成交额</td>
+            <td class="highlight">___</td>
+            <td>亿元</td>
+            <td>振幅</td>
+            <td class="highlight">___</td>
+            <td>做 T 空间</td>
+        </tr>
+        <tr>
+            <td>换手率</td>
+            <td class="highlight">___</td>
+            <td>___</td>
+            <td>量比</td>
+            <td class="highlight">___</td>
+            <td>___</td>
+        </tr>
+    </table>
+</div>
+
+<h2>一、全天走势复盘</h2>
+
+<h3>📈 分时走势分析</h3>
+<div class="timeline">
+    <div class="timeline-item">
+        <strong>09:25 开盘</strong> - ___
+    </div>
+    <div class="timeline-item">
+        <strong>09:30-10:00</strong> - ___
+    </div>
+    <div class="timeline-item">
+        <strong>10:00-11:00</strong> - ___
+    </div>
+    <div class="timeline-item">
+        <strong>11:00-11:30</strong> - ___
+    </div>
+    <div class="timeline-item">
+        <strong>13:00-14:00</strong> - ___
+    </div>
+    <div class="timeline-item">
+        <strong>14:00-14:30</strong> - ___
+    </div>
+    <div class="timeline-item">
+        <strong>14:30-15:00</strong> - ___
+    </div>
+    <div class="timeline-item">
+        <strong>15:00 收盘</strong> - ___
+    </div>
+</div>
+
+<h3>🎯 关键时点回顾</h3>
+<table>
+    <tr>
+        <th>时间</th>
+        <th>事件</th>
+        <th>价格</th>
+        <th>点评</th>
+    </tr>
+    <tr>
+        <td>___</td>
+        <td>___</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr class="highlight">
+        <td>___</td>
+        <td>___</td>
+        <td>___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>___</td>
+        <td>___</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>___</td>
+        <td>___</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+</table>
+
+<div class="success-box">
+    <strong>💰 今日做 T 机会回顾：</strong><br>
+    ___<br>
+    <br>
+    <strong>结论</strong>：___
+</div>
+
+<h2>二、技术面分析</h2>
+
+<h3>📊 K 线形态</h3>
+<div class="k-line">
+    <strong>今日 K 线：___</strong><br>
+    <br>
+    下影线：___<br>
+    实体：___<br>
+    上影线：___<br>
+    <br>
+    <strong>形态解读：___</strong>
+</div>
+
+<h3>📈 关键价位</h3>
+<div style="text-align: center; margin: 20px 0;">
+    <div><span class="price-level resistance">阻力位 R3: ___</span></div>
+    <div><span class="price-level resistance">阻力位 R2: ___</span></div>
+    <div><span class="price-level resistance">阻力位 R1: ___</span></div>
+    <div><span class="price-level current">💰 收盘价：___</span></div>
+    <div><span class="price-level support">支撑位 S1: ___</span></div>
+    <div><span class="price-level support">支撑位 S2: ___ ⭐</span></div>
+    <div><span class="price-level support">支撑位 S3: ___</span></div>
+</div>
+
+<h3>📊 量能分析</h3>
+<table>
+    <tr>
+        <th>指标</th>
+        <th>数值</th>
+        <th>解读</th>
+    </tr>
+    <tr>
+        <td>成交量</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>成交额</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>换手率</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>量比</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+</table>
+<div class="info-box" style="margin-top: 10px;">
+    <strong>结论</strong>：___
+</div>
+
+<h2>三、资金面分析</h2>
+
+<h3>主力资金流向（估算）</h3>
+<table>
+    <tr>
+        <th>时段</th>
+        <th>流向</th>
+        <th>金额</th>
+        <th>解读</th>
+    </tr>
+    <tr>
+        <td>早盘 (09:30-10:00)</td>
+        <td class="highlight">___</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>上午 (10:00-11:30)</td>
+        <td class="highlight">___</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>午后 (13:00-14:00)</td>
+        <td class="highlight">___</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>尾盘 (14:30-15:00)</td>
+        <td class="highlight">___</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td><strong>全天</strong></td>
+        <td class="highlight"><strong>___</strong></td>
+        <td class="highlight"><strong>___</strong></td>
+        <td>___</td>
+    </tr>
+</table>
+<div class="info-box" style="margin-top: 10px;">
+    <strong>解读</strong>：___
+</div>
+
+<h2>四、明日做 T 方案</h2>
+<div style="text-align: center; color: #6c757d; margin-bottom: 15px;">
+    日期：YYYY 年 MM 月 DD 日（周__）
+</div>
+
+<h3>📋 核心判断</h3>
+<table>
+    <tr>
+        <th>因素</th>
+        <th>判断</th>
+        <th>理由</th>
+    </tr>
+    <tr>
+        <td>趋势</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>振幅预期</td>
+        <td>___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>做 T 空间</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+    <tr>
+        <td>风险等级</td>
+        <td class="highlight">___</td>
+        <td>___</td>
+    </tr>
+</table>
+
+<h3>📈 关键价位预测</h3>
+<div style="text-align: center; margin: 20px 0;">
+    <div><span class="price-level resistance">阻力位 R3: ___ (强阻力)</span></div>
+    <div><span class="price-level resistance">阻力位 R2: ___</span></div>
+    <div><span class="price-level resistance">阻力位 R1: ___</span></div>
+    <div><span class="price-level current">💰 昨收：___</span></div>
+    <div><span class="price-level support">支撑位 S1: ___</span></div>
+    <div><span class="price-level support">支撑位 S2: ___ ⭐</span></div>
+    <div><span class="price-level support">支撑位 S3: ___</span></div>
+</div>
+<div class="info-box">
+    <strong>预期波动区间</strong>：___
+</div>
+
+<div class="strategy-box">
+    <h3 style="margin-top: 0;">🟢 方案 A：正 T（先买后卖）- 推荐</h3>
+    <p><strong>适用场景</strong>：低开或盘中下跌</p>
+    
+    <table>
+        <tr>
+            <th>步骤</th>
+            <th>价格区间</th>
+            <th>操作</th>
+            <th>仓位</th>
+            <th>理由</th>
+        </tr>
+        <tr class="highlight">
+            <td>买入①</td>
+            <td>___</td>
+            <td>买入</td>
+            <td>1000 股</td>
+            <td>支撑位附近</td>
+        </tr>
+        <tr>
+            <td>买入②</td>
+            <td>___</td>
+            <td>加仓</td>
+            <td>500 股</td>
+            <td>强支撑区域</td>
+        </tr>
+        <tr>
+            <td>卖出①</td>
+            <td>___</td>
+            <td>卖出</td>
+            <td>1000 股</td>
+            <td>第一目标</td>
+        </tr>
+        <tr>
+            <td>卖出②</td>
+            <td>___</td>
+            <td>卖出</td>
+            <td>500 股</td>
+            <td>第二目标</td>
+        </tr>
+    </table>
+    
+    <div class="success-box" style="margin-top: 15px;">
+        <strong>💰 预期收益：</strong><br>
+        保守：待计算<br>
+        乐观：待计算<br>
+        合计：<strong>待计算</strong>（未扣手续费）
+    </div>
+    
+    <div class="warning-box" style="margin-top: 10px;">
+        <strong>⚠️ 止损位</strong>：___
+    </div>
+</div>
+
+<div class="strategy-box" style="background-color: #fff8f0; border-color: #e67e22;">
+    <h3 style="margin-top: 0;">🔴 方案 B：反 T（先卖后买）</h3>
+    <p><strong>适用场景</strong>：高开≥1% 或盘中急拉</p>
+    
+    <table>
+        <tr>
+            <th>步骤</th>
+            <th>价格区间</th>
+            <th>操作</th>
+            <th>仓位</th>
+            <th>理由</th>
+        </tr>
+        <tr>
+            <td>卖出</td>
+            <td>___</td>
+            <td>卖出</td>
+            <td>1000 股</td>
+            <td>压力位附近</td>
+        </tr>
+        <tr>
+            <td>买回</td>
+            <td>___</td>
+            <td>买回</td>
+            <td>1000 股</td>
+            <td>回落承接</td>
+        </tr>
+    </table>
+    
+    <div class="success-box" style="margin-top: 15px;">
+        <strong>💰 预期收益</strong>：待计算
+    </div>
+    
+    <div class="warning-box" style="margin-top: 10px;">
+        <strong>⚠️ 止损位</strong>：___
+    </div>
+</div>
+
+<h3>⏰ 分时操作时间表</h3>
+<table>
+    <tr>
+        <th>时间</th>
+        <th>策略</th>
+        <th>操作建议</th>
+    </tr>
+    <tr>
+        <td>09:15-09:25</td>
+        <td>🟡 观察</td>
+        <td>观察集合竞价，判断开盘强弱</td>
+    </tr>
+    <tr>
+        <td>09:25-09:35</td>
+        <td>🟡 观察</td>
+        <td>观察开盘方向，不急于操作</td>
+    </tr>
+    <tr class="highlight">
+        <td>09:35-10:30</td>
+        <td>🟢 第一窗口</td>
+        <td>若低开可买入</td>
+    </tr>
+    <tr>
+        <td>10:30-11:30</td>
+        <td>🟢 第二窗口</td>
+        <td>通常有波动</td>
+    </tr>
+    <tr>
+        <td>11:30-13:00</td>
+        <td>⏸️ 午休</td>
+        <td>持仓观望</td>
+    </tr>
+    <tr>
+        <td>13:00-13:30</td>
+        <td>🟡 观察</td>
+        <td>午后开盘方向</td>
+    </tr>
+    <tr class="highlight">
+        <td>13:30-14:30</td>
+        <td>🟢 第三窗口</td>
+        <td>最佳操作时段</td>
+    </tr>
+    <tr>
+        <td>14:30-14:50</td>
+        <td>🔴 谨慎</td>
+        <td>尾盘波动高发</td>
+    </tr>
+    <tr class="highlight">
+        <td>14:50-15:00</td>
+        <td>🟢 平仓</td>
+        <td>做 T 仓位必须平仓</td>
+    </tr>
+</table>
+
+<h3>⚠️ 风险控制</h3>
+<div class="warning-box">
+    <ul>
+        <li><strong>低开低走：</strong> ___</li>
+        <li><strong>高开高走：</strong> ___</li>
+        <li><strong>缩量震荡：</strong> ___</li>
+        <li><strong>尾盘跳水：</strong> ___</li>
+        <li><strong>突发利空：</strong> ___</li>
+    </ul>
+</div>
+
+<h3>📋 明日操作清单</h3>
+<table>
+    <tr>
+        <th>时间</th>
+        <th>操作</th>
+        <th>价格</th>
+        <th>状态</th>
+    </tr>
+    <tr>
+        <td>09:15</td>
+        <td>观察集合竞价</td>
+        <td>-</td>
+        <td class="highlight">⏳ 待定</td>
+    </tr>
+    <tr>
+        <td>09:30</td>
+        <td>判断开盘策略</td>
+        <td>-</td>
+        <td class="highlight">⏳ 待定</td>
+    </tr>
+    <tr class="highlight">
+        <td>-</td>
+        <td>买入① (若低开)</td>
+        <td>___</td>
+        <td>⏳ 条件单</td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>买入② (若深跌)</td>
+        <td>___</td>
+        <td>⏳ 条件单</td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>卖出①</td>
+        <td>___</td>
+        <td>⏳ 条件单</td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>卖出②</td>
+        <td>___</td>
+        <td>⏳ 条件单</td>
+    </tr>
+    <tr class="highlight">
+        <td>14:50</td>
+        <td>强制平仓</td>
+        <td>-</td>
+        <td>⏳ 必须执行</td>
+    </tr>
+</table>
+
+<h2>五、今日复盘总结</h2>
+<table>
+    <tr>
+        <th>项目</th>
+        <th>评估</th>
+    </tr>
+    <tr>
+        <td>今日建议执行度</td>
+        <td class="highlight">___</td>
+    </tr>
+    <tr>
+        <td>尾盘走势</td>
+        <td class="highlight">___</td>
+    </tr>
+    <tr>
+        <td>做 T 机会</td>
+        <td class="highlight">___</td>
+    </tr>
+    <tr>
+        <td>明日预期</td>
+        <td class="highlight">___</td>
+    </tr>
+    <tr>
+        <td>推荐策略</td>
+        <td class="highlight">___</td>
+    </tr>
+</table>
+
+<div class="success-box" style="margin-top: 20px;">
+    <strong>🎯 明日核心策略：</strong><br>
+    ___<br>
+    <br>
+    <strong>💡 一句话总结：</strong>___
+</div>
+
+<div class="warning-box" style="margin-top: 25px;">
+    <strong>⚠️ 免责声明：</strong><br>
+    本复盘仅供参考，不构成投资建议。股市有风险，交易需谨慎。请根据个人风险承受能力独立决策。
+</div>
+
+<div class="footer">
+    股票名称 (股票代码.SZ/SH) 收盘复盘报告 | 生成时间：YYYY-MM-DD HH:MM | 数据截止时间：15:00<br>
+    本文档由 OpenClaw 智能生成 | 仅供个人参考使用
+</div>
+
+</body>
+</html>
