@@ -6,13 +6,13 @@ credentials/
 config/
 .openclaw/
 
-# 个人数据
-MEMORY.md
-USER.md
-SOUL.md
-IDENTITY.md
-BOOTSTRAP.md
-memory/
+# 个人数据 - 已注释，允许同步
+# MEMORY.md
+# USER.md
+# SOUL.md
+# IDENTITY.md
+# BOOTSTRAP.md
+# memory/
 
 # 日志
 logs/
