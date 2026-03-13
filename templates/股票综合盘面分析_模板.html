@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票 (代码) 综合盘面分析与量化交易建议</title>
+    <style>
+        body { font-family: "Microsoft YaHei", "SimSun", Arial, sans-serif; font-size: 14px; line-height: 1.8; margin: 40px; color: #333; }
+        h1 { font-size: 28px; text-align: center; margin-bottom: 10px; color: #1a1a1a; border-bottom: 3px solid #2563eb; padding-bottom: 15px; }
+        h2 { font-size: 20px; margin-top: 30px; margin-bottom: 15px; color: #1e40af; border-left: 4px solid #2563eb; padding-left: 12px; }
+        h3 { font-size: 16px; margin-top: 20px; margin-bottom: 10px; color: #374151; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 30px; font-size: 16px; }
+        .info-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 15px; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+        th, td { border: 1px solid #e5e7eb; padding: 10px; text-align: center; }
+        th { background: #f3f4f6; font-weight: 600; color: #1f2937; }
+        tr:nth-child(even) { background: #f9fafb; }
+        .up { color: #dc2626; font-weight: 600; }
+        .down { color: #16a34a; font-weight: 600; }
+        .neutral { color: #6b7280; }
+        .warning { background: #fef3c7; border: 1px solid #fcd34d; color: #92400e; padding: 12px; border-radius: 6px; margin: 15px 0; }
+        .success { background: #dcfce7; border: 1px solid #86efac; color: #166534; padding: 12px; border-radius: 6px; margin: 15px 0; }
+        .danger { background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; padding: 12px; border-radius: 6px; margin: 15px 0; }
+        .primary { background: #dbeafe; border: 1px solid #93c5fd; color: #1e40af; padding: 12px; border-radius: 6px; margin: 15px 0; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #e5e7eb; text-align: center; color: #6b7280; font-size: 12px; }
+        .metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0; }
+        .metric-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; text-align: center; }
+        .metric-value { font-size: 24px; font-weight: 700; color: #1e40af; }
+        .metric-label { font-size: 12px; color: #64748b; margin-top: 5px; }
+        .score-box { background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 20px 0; }
+        .score-number { font-size: 48px; font-weight: 700; }
+        .score-label { font-size: 16px; opacity: 0.9; }
+        .rating-box { background: #fbbf24; color: white; padding: 20px; border-radius: 8px; text-align: center; font-size: 20px; font-weight: 700; margin: 20px 0; }
+        ul { margin: 10px 0; padding-left: 25px; }
+        li { margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <h1>📊 股票名称 (股票代码) 综合盘面分析</h1>
+    <p class="subtitle">量化交易建议报告 | 报告日期：YYYY 年 MM 月 DD 日</p>
+
+    <h2>📈 一、基本统计分析</h2>
+    <div class="metric-grid">
+        <div class="metric-card"><div class="metric-value">___</div><div class="metric-label">最新收盘价</div></div>
+        <div class="metric-card"><div class="metric-value">___</div><div class="metric-label">180 天最高价</div></div>
+        <div class="metric-card"><div class="metric-value">___</div><div class="metric-label">180 天最低价</div></div>
+        <div class="metric-card"><div class="metric-value">___</div><div class="metric-label">180 天涨跌幅</div></div>
+    </div>
+    <p><strong>平均成交量：</strong>___ 手</p>
+    <p><strong>当前价格在 180 天区间的位置：</strong>___</p>
+
+    <h2>📊 二、趋势分析</h2>
+    <table>
+        <tr><th>均线</th><th>数值</th><th>股价位置</th></tr>
+        <tr><td>MA5</td><td>___</td><td class="neutral">___</td></tr>
+        <tr><td>MA10</td><td>___</td><td class="neutral">___</td></tr>
+        <tr><td>MA20</td><td>___</td><td class="neutral">___</td></tr>
+        <tr><td>MA60</td><td>___</td><td class="neutral">___</td></tr>
+        <tr><td><strong>均线得分</strong></td><td><strong>___</strong></td><td class="neutral"><strong>___</strong></td></tr>
+    </table>
+
+    <h2>🔧 三、技术指标分析</h2>
+    <h3>RSI (相对强弱指数)</h3>
+    <table><tr><th>指标</th><th>数值</th><th>信号</th></tr>
+        <tr><td>RSI(14)</td><td>___</td><td class="neutral">___</td></tr>
+    </table>
+
+    <h3>MACD (移动平均收敛发散)</h3>
+    <table>
+        <tr><th>指标</th><th>数值</th><th>信号</th></tr>
+        <tr><td>MACD 线</td><td>___</td><td rowspan="2" class="neutral">___</td></tr>
+        <tr><td>Signal 线</td><td>___</td></tr>
+        <tr><td>Histogram</td><td>___</td><td class="neutral">___</td></tr>
+    </table>
+
+    <h2>📅 四、近 10 个交易日走势</h2>
+    <table>
+        <tr><th>日期</th><th>收盘价</th><th>涨跌幅</th><th>成交量 (手)</th></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>___</td><td>___</td><td class="neutral">___</td><td>___</td></tr>
+    </table>
+    <p><strong>趋势统计：</strong></p>
+    <ul>
+        <li>近 5 日：___</li>
+        <li>近 10 日：___</li>
+        <li>近 20 日：___</li>
+    </ul>
+
+    <h2>🎯 五、支撑位与压力位</h2>
+    <div class="info-box">
+        <p><strong>短期 (20 日):</strong></p><ul><li>支撑位：___</li><li>压力位：___</li></ul>
+        <p><strong>中期 (60 日):</strong></p><ul><li>支撑位：___</li><li>压力位：___</li></ul>
+        <p><strong>整数关口:</strong></p><ul><li>下方支撑：___</li><li>上方压力：___</li></ul>
+    </div>
+
+    <h2>📊 六、量化综合评分</h2>
+    <div class="score-box"><div class="score-number">_ / 10</div><div class="score-label">综合评分</div></div>
+    <h3>评分明细</h3>
+    <table>
+        <tr><th>指标</th><th>得分</th><th>说明</th></tr>
+        <tr><td>均线系统</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>RSI</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>MACD</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>趋势</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>位置</td><td class="neutral">___</td><td>___</td></tr>
+        <tr><td>行业属性</td><td class="neutral">___</td><td>___</td></tr>
+    </table>
+    <div class="rating-box">___</div>
+
+    <h2>💡 七、量化交易建议</h2>
+    <div class="primary">
+        <p><strong>📌 操作策略：</strong>___</p>
+        <p><strong>📌 建议仓位：</strong>___</p>
+    </div>
+    
+    <h3>入场点位</h3>
+    <div class="info-box">
+        <p><strong>理想入场区间：</strong>___</p>
+    </div>
+    
+    <h3>止损位</h3>
+    <div class="danger">
+        <p><strong>止损位：</strong>___</p>
+        <p><strong>强止损：</strong>___</p>
+    </div>
+    
+    <h3>止盈位</h3>
+    <div class="success">
+        <p><strong>第一目标：</strong>___</p>
+        <p><strong>第二目标：</strong>___</p>
+        <p><strong>强压力位：</strong>___</p>
+    </div>
+    
+    <h3>风险提示</h3>
+    <div class="warning">
+        <ul>
+            <li>___</li>
+            <li>___</li>
+        </ul>
+    </div>
+
+    <h2>📋 八、数据来源</h2>
+    <div class="info-box">
+        <p><strong>数据源：</strong>AkShare (东方财富)</p>
+        <p><strong>股票代码：</strong>______.SZ/SH（股票名称）</p>
+        <p><strong>板块：</strong>深圳证券交易所/上海证券交易所 - 行业</p>
+        <p><strong>行业：</strong>___</p>
+        <p><strong>概念：</strong>___</p>
+    </div>
+
+    <div class="footer">
+        <p>⚠️ <strong>风险提示：</strong>以上分析仅供参考，不构成投资建议。股市有风险，投资需谨慎。</p>
+        <p>报告生成时间：YYYY-MM-DD HH:MM (Asia/Shanghai)</p>
+    </div>
+</body>
+</html>

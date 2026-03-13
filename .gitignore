@@ -1,0 +1,40 @@
+# 敏感信息
+*.secret
+*.key
+*.pem
+credentials/
+config/
+.openclaw/
+
+# 个人数据
+MEMORY.md
+USER.md
+SOUL.md
+IDENTITY.md
+BOOTSTRAP.md
+memory/
+
+# 日志
+logs/
+*.log
+*.log.*
+
+# 临时文件
+*.tmp
+*.bak
+__pycache__/
+node_modules/
+.venv/
+
+# 环境文件
+.env
+.env.local
+*.env
+
+# PDF 文件（太大）
+*.pdf
+
+# 分析报告
+*_分析报告.md
+*_复盘*.md
+*_方案*.md
