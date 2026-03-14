@@ -1,0 +1,16 @@
+# 添加到 test-repo 的 .gitignore
+
+# Node modules
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Logs
+*.log
+
+# 临时文件
+*.tmp
+*.swp
