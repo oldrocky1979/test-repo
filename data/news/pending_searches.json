@@ -1,0 +1,26 @@
+{
+  "collections": [
+    {
+      "category": "全球时事",
+      "queries": ["国际新闻 今日热点", "world news breaking today", "全球重大事件 2026"],
+      "count": 5
+    },
+    {
+      "category": "科技新闻", 
+      "queries": ["科技新闻 今日", "tech news today 2026", "科技创新 最新发布"],
+      "count": 5
+    },
+    {
+      "category": "人工智能",
+      "queries": ["AI 人工智能 最新进展", "artificial intelligence news today", "大模型 新突破"],
+      "count": 5
+    },
+    {
+      "category": "金融经济",
+      "queries": ["金融市场 今日动态", "financial news economy today", "股市 汇市 最新"],
+      "count": 5
+    }
+  ],
+  "collection_time": "2026-03-14_0800",
+  "status": "pending"
+}

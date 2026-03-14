@@ -1,0 +1,77 @@
+/bin/bash: /home/admin/.openclaw/workspace/scripts/breaking_news_monitor.sh: Permission denied
+开始执行每日早晨推送...
+检测到待处理数据，启动收集任务...
+开始收集新闻...
+新闻收集任务已创建，等待处理...
+收集时间：2026-03-14_0800
+/home/admin/.openclaw/workspace/scripts/daily_morning_push.sh: line 32: openclaw: command not found
+开始执行每日早晨推送...
+检测到待处理数据，启动收集任务...
+│
+◇  Doctor warnings ───────────────────────────────────────────────────╮
+│                                                                     │
+│  - channels.feishu.allowFrom: set to ["*"] (required by             │
+│    dmPolicy="open")                                                 │
+│  - Run "openclaw doctor --fix" to add missing allowFrom wildcards.  │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────╯
+[plugins] feishu_doc: Registered feishu_doc, feishu_app_scopes
+[plugins] feishu_chat: Registered feishu_chat tool
+[plugins] feishu_wiki: Registered feishu_wiki tool
+[plugins] feishu_drive: Registered feishu_drive tool
+[plugins] feishu_bitable: Registered bitable tools
+[plugins] [92m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[plugins]   OpenClaw China Channels 已就绪!
+[plugins] [92m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[plugins] 
+[plugins] 项目仓库:
+[plugins]   [1;4;96mhttps://github.com/BytePioneer-AI/openclaw-china[0m
+[plugins] 
+[plugins] ⭐ 如果这个项目对你有帮助，请给我们一个 Star！⭐
+[plugins] 
+[plugins] 下一步（配置引导）:
+[plugins]   1. 运行交互式配置向导
+[plugins]      [1mopenclaw china setup[0m
+[plugins]   2. 按提示填写渠道凭据并保存配置
+[plugins]   3. 启动网关并观察日志
+[plugins]      openclaw gateway --port 18789 --verbose
+[info]: [ 'client ready' ]
+✅ Sent via Feishu. Message ID: om_x100b547ec99aa8a4c3802926960eaa2 (chat ou_c051a3ac336ce444b19011d44bbd7ff1)
+推送通知已发送，开始生成详细报告...
+触发报告生成任务...
+每日早晨推送任务完成
+开始收集 Skills...
+开始检查紧急重大新闻...
+Skills 收集任务已创建，等待处理...
+收集时间：2026-03-14_0830
+紧急新闻监控任务已创建
+========== 任务调度开始 ==========
+任务：breaking_news_check
+时间：2026-03-14 09:00
+任务 ID: 20260314_090001_94633
+✓ 紧急新闻检查任务文件已创建
+========== 任务调度完成 ==========
+========== 任务调度开始 ==========
+任务：breaking_news_check
+时间：2026-03-14 09:30
+任务 ID: 20260314_093001_94842
+✓ 紧急新闻检查任务文件已创建
+========== 任务调度完成 ==========
+========== 任务调度开始 ==========
+任务：breaking_news_check
+时间：2026-03-14 10:00
+任务 ID: 20260314_100001_95261
+✓ 紧急新闻检查任务文件已创建
+========== 任务调度完成 ==========
+========== 任务调度开始 ==========
+任务：breaking_news_check
+时间：2026-03-14 10:30
+任务 ID: 20260314_103001_95566
+✓ 紧急新闻检查任务文件已创建
+========== 任务调度完成 ==========
+========== 任务调度开始 ==========
+任务：breaking_news_check
+时间：2026-03-14 11:00
+任务 ID: 20260314_110001_95845
+✓ 紧急新闻检查任务文件已创建
+========== 任务调度完成 ==========

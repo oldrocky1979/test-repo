@@ -1,0 +1,9 @@
+{
+  "task_type": "collect_news",
+  "created_at": "2026-03-14 11:28:21",
+  "config": {
+    "categories": ["全球时事", "科技前沿", "人工智能", "金融经济"],
+    "items_per_category": 10,
+    "output_dir": "/home/admin/.openclaw/workspace/data/news/cache"
+  }
+}

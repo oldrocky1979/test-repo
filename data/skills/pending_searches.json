@@ -1,0 +1,16 @@
+{
+  "searches": [
+    {
+      "source": "clawhub",
+      "query": "trending skills",
+      "count": 10
+    },
+    {
+      "source": "github",
+      "query": "/home/admin/.local/share/pnpm/openclaw skills agent",
+      "count": 10
+    }
+  ],
+  "collection_time": "2026-03-14_0830",
+  "status": "pending"
+}

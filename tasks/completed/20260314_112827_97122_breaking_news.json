@@ -1,0 +1,11 @@
+{
+  "task_type": "breaking_news_check",
+  "created_at": "2026-03-14 11:28:27",
+  "config": {
+    "target": "user:ou_c051a3ac336ce444b19011d44bbd7ff1",
+    "account": "bot-2",
+    "channel": "feishu",
+    "keywords": ["战争", "军事", "冲突", "地震", "台风", "金融危机", "央行", "美联储", "AI 突破", "重大政策", "疫情"],
+    "quiet_hours": false
+  }
+}

@@ -1,0 +1,45 @@
+# Crontab 定时任务配置 - OpenClaw 推送系统
+# 安装：crontab /home/admin/.openclaw/workspace/crontab.txt
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+WORKSPACE=/home/admin/.openclaw/workspace
+
+# ==================== 每天执行的任务 ====================
+
+# 00:05 - 服务器报告（本地 + 新加坡）+ Tokens 使用量&价格
+5 0 * * * $WORKSPACE/scripts/server_report.sh >> $WORKSPACE/logs/cron.log 2>&1
+
+# 09:00 SGT (01:00 CST) - 新加坡服务器晨间报告（工作日）
+0 1 * * 1-5 $WORKSPACE/scripts/task_scheduler.sh singapore_morning_report >> $WORKSPACE/logs/cron.log 2>&1
+
+# 07:00-23:00 每 30 分钟 - 紧急重大新闻检查
+*/30 7-23 * * * $WORKSPACE/scripts/task_scheduler.sh breaking_news_check >> $WORKSPACE/logs/cron.log 2>&1
+
+# 08:00 - 早间新闻和 Skills 汇总报告（核心任务）
+0 8 * * * $WORKSPACE/scripts/task_scheduler.sh morning_report >> $WORKSPACE/logs/cron.log 2>&1
+
+# ==================== 每 4 小时执行的任务 ====================
+
+# 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 - 新闻数据收集
+0 */4 * * * $WORKSPACE/scripts/task_scheduler.sh collect_news >> $WORKSPACE/logs/cron.log 2>&1
+
+# 00:30, 04:30, 08:30, 12:30, 16:30, 20:30 - Skills 数据收集
+30 */4 * * * $WORKSPACE/scripts/task_scheduler.sh collect_skills >> $WORKSPACE/logs/cron.log 2>&1
+
+# ==================== 工作日执行的任务 (周一至周五) ====================
+
+# 09:00 - 外汇和 A 股分析推送
+0 9 * * 1-5 $WORKSPACE/scripts/task_scheduler.sh forex_stock_9am >> $WORKSPACE/logs/cron.log 2>&1
+
+# 12:00 - A 股早盘回顾
+0 12 * * 1-5 $WORKSPACE/scripts/task_scheduler.sh stock_12pm >> $WORKSPACE/logs/cron.log 2>&1
+
+# 15:00 - 外汇欧洲盘分析
+0 15 * * 1-5 $WORKSPACE/scripts/task_scheduler.sh forex_3pm >> $WORKSPACE/logs/cron.log 2>&1
+
+# 15:40 - A 股收盘分析
+40 15 * * 1-5 $WORKSPACE/scripts/task_scheduler.sh stock_340pm >> $WORKSPACE/logs/cron.log 2>&1
+
+# 20:00 - 美洲盘分析
+0 20 * * 1-5 $WORKSPACE/scripts/task_scheduler.sh forex_8pm >> $WORKSPACE/logs/cron.log 2>&1

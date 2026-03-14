@@ -1,0 +1,8 @@
+{
+  "task_type": "collect_skills",
+  "created_at": "2026-03-14 11:28:27",
+  "config": {
+    "sources": ["clawhub", "github"],
+    "output_dir": "/home/admin/.openclaw/workspace/data/skills/cache"
+  }
+}
