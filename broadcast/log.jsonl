@@ -1,0 +1,1 @@
+{"type":"broadcast","id":"broadcast-001","timestamp":"2026-03-14T17:00:00+08:00","title":"文件推送协议 v1.0 生效","priority":"high","content":"所有生成的文件必须直接发送到会话中，不得发送路径链接。文档位置：docs/file_delivery_protocol.md","sender":"bot-2","targets":["bot-1","bot-2","bot-4","bot-6"],"requiresReply":true,"documentRef":"docs/file_delivery_protocol.md"}
