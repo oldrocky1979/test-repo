@@ -1,0 +1,22 @@
+# 敏感文件
+.credentials/
+.env
+.env.local
+*.pem
+*.key
+
+# 日志文件
+logs/
+*.log
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 扫描报告（可能包含敏感信息）
+data/skills/scans/
