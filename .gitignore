@@ -1,22 +1,27 @@
-# 敏感文件
-.credentials/
-.env
-.env.local
-*.pem
-*.key
+# Node modules
+node_modules/
 
-# 日志文件
-logs/
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Logs
 *.log
 
 # 临时文件
-tmp/
-temp/
 *.tmp
+*.swp
 
-# 系统文件
-.DS_Store
-Thumbs.db
+# 敏感信息
+*.secret
+*.key
+*.pem
+credentials/
+config/
+.openclaw/
 
-# 扫描报告（可能包含敏感信息）
-data/skills/scans/
+# 个人数据
+MEMORY.md
+USER.md
+SOUL.md
